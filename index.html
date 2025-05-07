@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iPhone Simulado</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    phone {
+      display: block;
+      width: 300px;
+      height: 620px;
+      background: url('https://wallpapers.com/images/featured/iphone-wltnz5o1xymafqmo.jpg') center/cover no-repeat;
+      border-radius: 36px;
+      border: 8px solid #222;
+      position: relative;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 36px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 13px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 18px;
+    }
+
+    app-icon {
+      display: block;
+      text-align: center;
+      color: white;
+      font-size: 11px;
+    }
+
+    app-icon img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 4px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    app-icon img:hover {
+      transform: scale(1.08);
+    }
+
+    /* App abierta */
+    main {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    main.active {
+      display: flex;
+    }
+
+    main h1 {
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    main button {
+      padding: 8px 16px;
+      border: none;
+      background: #007aff;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0 16px;
+    }
+
+    dock-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-size: 11px;
+    }
+
+    dock-icon img {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    dock-icon img:hover {
+      transform: scale(1.08);
+    }
+
+    notch {
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 20px;
+      background: black;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <phone>
+    <header>
+      <time>9:41</time>
+      <section>Telcel 5G ▪︎ ▪︎ ▪︎ ▪︎ ▪︎ 🔋</section>
+    </header>
+
+    <notch></notch>
+
+    <nav>
+      <app-icon><img src="https://as2.ftcdn.net/jpg/05/32/20/03/1000_F_532200355_odKN9Ou3WB6iHWJTFIElFtJbTuzJspY6.jpg"
+          alt="Facebook">Facebook</app-icon>
+      <app-icon><img src="https://images.icon-icons.com/836/PNG/512/Instagram_icon-icons.com_66804.png"
+          alt="Instagram">Instagram</app-icon>
+      <app-icon><img
+          src="https://as2.ftcdn.net/v2/jpg/06/95/82/33/1000_F_695823366_wBngEryefLtKk8zJhuiWxUeG3BzMD9bn.jpg"
+          alt="WhatsApp">WhatsApp</app-icon>
+      <app-icon><img src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Photos-512.png"
+          alt="Galería">Galería</app-icon>
+      <app-icon><img src="https://cdn-icons-png.freepik.com/512/564/564442.png" alt="Safari">Safari</app-icon>
+      <app-icon><img src="https://images.icon-icons.com/56/PNG/512/meter_macappstore_11408.png" alt="App Store">App
+        Store</app-icon>
+      <app-icon><img src="https://cdn.pixabay.com/photo/2017/01/11/08/31/icon-1971130_1280.png" alt="Mac">Mac</app-icon>
+      <app-icon><img src="https://cdn.pixabay.com/photo/2022/05/08/03/10/calculator-7181192_1280.png"
+          alt="Calculadora">Calculadora</app-icon>
+      <app-icon><img src="https://cdn-icons-png.freepik.com/512/2504/2504914.png" alt="Google">Google</app-icon>
+      <app-icon><img src="https://logos-marcas.com/wp-content/uploads/2021/08/Firefox-Emblema.png"
+          style="width: 60px; height: 60px; border-radius: 14px; object-fit: cover;" alt="Firefox">Firefox</app-icon>
+    </nav>
+
+    <main id="phoneApp">
+      <h1>Teléfono</h1><button onclick="closeApp('phoneApp')">Cerrar</button>
+    </main>
+    <main id="msgApp">
+      <h1>Mensajes</h1><button onclick="closeApp('msgApp')">Cerrar</button>
+    </main>
+    <main id="itunesApp">
+      <h1>iTunes</h1><button onclick="closeApp('itunesApp')">Cerrar</button>
+    </main>
+
+    <footer>
+      <dock-icon>
+        <img src="https://images.icon-icons.com/294/PNG/256/Phone_31105.png" alt="Llamadas">
+        Llamadas
+      </dock-icon>
+      <dock-icon>
+        <img src="https://cdn-icons-png.flaticon.com/512/5604/5604594.png" alt="SMS">
+        SMS
+      </dock-icon>
+      <dock-icon>
+        <img src="https://cdsassets.apple.com/live/7WUAS350/images/apple-music-app-for-windows-icon.png" alt="iTunes">
+        iTunes
+      </dock-icon>
+    </footer>
+  </phone>
+
+  <script>
+    function openApp(id) {
+      document.getElementById(id).classList.add("active");
+    }
+
+    function closeApp(id) {
+      document.getElementById(id).classList.remove("active");
+    }
+  </script>
+
+</body>
+
+</html>
